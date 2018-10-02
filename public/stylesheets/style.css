@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+
+:root{
+  --Btn-height: 3em;
+  --Btn-width: 15em;
+}
+
+#BigBtnGroup{
+  display: grid;
+}
+.Button.Float{
+  height: var(--Btn-height);
+  width: var(--Btn-width);
+  border-radius: 0.5em;
+}
+
+.Button.Float.Left{
+  float: Left;
+}
+
+.Button.Float.Right{
+  float: right;
+}
