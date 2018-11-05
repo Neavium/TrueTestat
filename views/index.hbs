@@ -1,16 +1,35 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<form>
-    <div id="BigBtnGroup">
-        <div id="FirstBtnGroup">
-            <button class="Button Float Left">Create new Note</button>
-            <button class="Button Float Right">Style Switcher</button>
-        </div>
-        <div id="SecondBtnGroup">
-            <button class="Button Float Left">By finish Date</button>
-            <button class="Button Float Left">By created Date</button>
-            <button class="Button Float Left">By Importance</button>
-            <button class="Button Float Right">Hide Finished</button>
-        </div>
+<div id="HeadBtnGroup">
+    <div id="Head">
+        <button class="Button">Create new Note</button>
+        <button class="Button Right">Style Switcher</button>
     </div>
-</form>
+    <div id="Subhead">
+        <button class="Button">By finish Date</button>
+        <button class="Button">By created Date</button>
+        <button class="Button">By Importance</button>
+        <button class="Button Right">Hide Finished</button>
+    </div>
+
+</div>
+<div id="ListEntry">
+    <a class="DueTo">Time</a>
+    <label class="CheckboxLabel" for="FinishedCheckbox">Finished
+        <input id="FinishedCheckbox" type="checkbox">
+    </label>
+    <label class="TextAreaTitle" for="TextArea">title</label>
+    <textarea id="TextArea">this is a text</textarea>
+    <a class="Importance">Importance</a>
+    <button class="Button Edit">Edit</button>
+</div>
+<div id="ListEntry">
+    <a class="DueTo">Time</a>
+    <label class="CheckboxLabel" for="FinishedCheckbox">Finished
+        <input id="FinishedCheckbox" type="checkbox">
+    </label>
+    <label class="TextAreaTitle" for="TextArea">title</label>
+    <textarea id="TextArea">this is a text</textarea>
+    <a class="Importance">Importance</a>
+    <button class="Button Edit">Edit</button>
+</div>
+
+

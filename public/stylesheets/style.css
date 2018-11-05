@@ -1,30 +1,167 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+/*a {*/
+/*color: #00B7FF;*/
+/*}*/
+
+:root {
+    --Btn-height: 2rem;
+    --Btn-width: 12rem;
 }
 
-:root{
-  --Btn-height: 3em;
-  --Btn-width: 15em;
+/*Headline index*/
+#HeadBtnGroup {
+    display: grid;
 }
 
-#BigBtnGroup{
-  display: grid;
-}
-.Button.Float{
-  height: var(--Btn-height);
-  width: var(--Btn-width);
-  border-radius: 0.5em;
-}
-
-.Button.Float.Left{
-  float: Left;
+#Head {
+    display: inherit;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
-.Button.Float.Right{
-  float: right;
+#Head .Right {
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
+
+#Subhead {
+    display: inherit;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.Button {
+    height: var(--Btn-height);
+    padding: 0rem;
+    border-radius: 0.5rem;
+    display: inherit;
+    align-content: center;
+}
+
+@media screen and (min-width: 52rem) {
+    #Head {
+        grid-template-columns: var(--Btn-width) auto var(--Btn-width);
+    }
+
+    #Subhead {
+        grid-template-columns: var(--Btn-width) var(--Btn-width) var(--Btn-width) auto var(--Btn-width);
+    }
+
+    #Subhead .Right {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+}
+
+@media screen and (min-width: 28rem) and (max-width: 52rem) {
+    #Head {
+        grid-template-columns: var(--Btn-width) auto var(--Btn-width);
+    }
+
+    #Subhead .Button {
+        grid-column-start: inherit;
+        grid-column-end: inherit;
+    }
+}
+
+@media screen and (max-width: 28rem) {
+    #Head {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #Head .Right {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    #Subhead .Button {
+        grid-column-start: inherit;
+        grid-column-end: inherit;
+    }
+}
+
+/*Listentries*/
+#ListEntry {
+    display: grid;
+    /*TODO: calculate auto to min-max()*/
+    /*80rem = 2rem + 0.2rem + 1rem + 8rem + auto + auto + 15rem + 0.2rem + 2rem = 28.4rem + 51.6rem*/
+    grid-template-columns: 8rem 1fr 1fr var(--Btn-width);
+    border: dotted darkgray;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    margin: 0.2rem 0;
+}
+
+@media screen and (min-width: 52rem) {
+    .DueTo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: 1rem;
+    }
+
+    .TextAreaTitle {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: 1rem;
+    }
+
+    .Importance {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-right: 1rem;
+        text-align: end;
+    }
+
+    .CheckboxLabel {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1rem;
+    }
+
+    #TextArea {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        max-width: 30rem;
+        max-height: 5rem;
+    }
+
+    .Edit {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 28rem) and (max-width: 52rem) {
+
+}
+
+@media screen and (max-width: 28rem) {
+
+}
+
+/*new note*/
