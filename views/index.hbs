@@ -1,35 +1,38 @@
-<div id="HeadBtnGroup">
+<form id="HeadForm">
     <div id="Head">
-        <button class="Button">Create new Note</button>
-        <button class="Button Right">Style Switcher</button>
+        <input type="submit" formmethod="get" formaction="/createNote" class="Button" value="Create new Note">
+        <input type="submit" formmethod="get" formaction="/styleSwitch" class="Button Right" value="Style Switcher">
     </div>
     <div id="Subhead">
-        <button class="Button">By finish Date</button>
-        <button class="Button">By created Date</button>
-        <button class="Button">By Importance</button>
-        <button class="Button Right">Hide Finished</button>
+        <input type="submit" formmethod="get" formaction="/sortFinishDate" class="Button" value="By finish Date">
+        <input type="submit" formmethod="get" formaction="/sortCreateDate" class="Button" value="By created Date">
+        <input type="submit" formmethod="get" formaction="/sortImportance" class="Button" value="By Importance">
+        <input type="submit" formmethod="get" formaction="/hideFinished" class="Button Right" value="Hide Finished">
     </div>
-
-</div>
-<div id="ListEntry">
-    <a class="DueTo">Time</a>
-    <label class="CheckboxLabel" for="FinishedCheckbox">Finished
-        <input id="FinishedCheckbox" type="checkbox">
-    </label>
-    <label class="TextAreaTitle" for="TextArea">title</label>
-    <textarea id="TextArea">this is a text</textarea>
-    <a class="Importance">Importance</a>
-    <button class="Button Edit">Edit</button>
-</div>
-<div id="ListEntry">
-    <a class="DueTo">Time</a>
-    <label class="CheckboxLabel" for="FinishedCheckbox">Finished
-        <input id="FinishedCheckbox" type="checkbox">
-    </label>
-    <label class="TextAreaTitle" for="TextArea">title</label>
-    <textarea id="TextArea">this is a text</textarea>
-    <a class="Importance">Importance</a>
-    <button class="Button Edit">Edit</button>
-</div>
+</form>
+<form id="ListForm">
+    <div id="ListEntry">
+        <a class="DueTo">Time</a>
+        <label class="CheckboxLabel" for="FinishedCheckbox">Finished
+            <input id="FinishedCheckbox" type="checkbox">
+        </label>
+        <label class="TextAreaTitle" for="TextArea">Title</label>
+        <textarea id="TextArea">this is a text</textarea>
+        <a class="Importance">Importance</a>
+        <input type="submit" formmethod="get" formaction="/editNote" class="Button Edit" value="Edit">
+    </div>
+</form>
+<form id="ListForm">
+    <div id="ListEntry">
+        <a class="DueTo">Time</a>
+        <label class="CheckboxLabel" for="FinishedCheckbox">Finished
+            <input id="FinishedCheckbox" type="checkbox">
+        </label>
+        <label class="TextAreaTitle" for="TextArea">Title</label>
+        <textarea id="TextArea">this is a text</textarea>
+        <a class="Importance">Importance</a>
+        <input type="submit" formmethod="get" formaction="/editNote" class="Button Edit" value="Edit">
+    </div>
+</form>
 
 
