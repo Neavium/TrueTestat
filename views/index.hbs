@@ -1,13 +1,25 @@
 <div id="HeadBtnGroup">
     <div id="Head">
-        <button class="Button">Create new Note</button>
-        <button class="Button Right">Style Switcher</button>
+        <form action="/createNote" methode="post">
+            <button type="submit" class="Button">Create new Note</button>
+        </form>
+        <form action="/switchStyle" methode="get">
+            <button type="submit" class="Button Right">Style Switcher</button>
+        </form>
     </div>
     <div id="Subhead">
-        <button class="Button">By finish Date</button>
-        <button class="Button">By created Date</button>
-        <button class="Button">By Importance</button>
-        <button class="Button Right">Hide Finished</button>
+        <form action="/orderByDate" methode="post">
+            <button type="submit" class="Button">By finish Date</button>
+        </form>
+        <form action="/orderByCreationDate" methode="post">
+            <button type="submit" class="Button">By created Date</button>
+        </form>
+        <form action="/orderByImportance" methode="post">
+            <button class="Button">By Importance</button>
+        </form>
+        <form>
+            <button type="submit" class="Button Right">Hide Finished</button>
+        </form>
     </div>
 
 </div>
