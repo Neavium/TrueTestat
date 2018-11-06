@@ -18,10 +18,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const indexRouter = require('./routes/indexRoutes');
-// const noteRouter = require('./routes/noteRoutes');
+const noteRouter = require('./routes/noteRoutes');
 
 app.use('/', indexRouter);
-// app.use('/users', noteRouter);
+app.use('/note', noteRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
