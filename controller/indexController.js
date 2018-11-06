@@ -5,7 +5,8 @@ module.exports.showIndex = function (req, res) {
 };
 
 module.exports.createNote = function (req, res) {
-    res.send("Create Note: Not implemented yet, sorry")
+    // res.send("Create Note: Not implemented yet, sorry")
+    res.render('layout', { title: 'TrueTestat', body: "index"})
 }
 
 module.exports.styleSwitch = function (req, res){
