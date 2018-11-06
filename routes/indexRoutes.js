@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const indexLinks = require('../controller/indexController.js');
+const indexController = require('../controller/indexController.js');
 
-router.get('/', indexLinks.showIndex);
-router.get("/createNote", indexLinks.createNote);
-router.get("/styleSwitch", indexLinks.styleSwitch);
-router.get("/sortFinishDate", indexLinks.sortFinishDate);
-router.get("/sortCreateDate", indexLinks.sortCreateDate);
-router.get("/sortImportance", indexLinks.sortImportance);
-router.get("/hideFinished", indexLinks.hideFinished);
+router.get('/', indexController.showIndex);
+router.get("/createNote", indexController.createNote);
+router.get("/styleSwitch", indexController.styleSwitch);
+router.get("/sortFinishDate", indexController.sortFinishDate);
+router.get("/sortCreateDate", indexController.sortCreateDate);
+router.get("/sortImportance", indexController.sortImportance);
+router.get("/hideFinished", indexController.hideFinished);
+router.get("/editNote", indexController.editNote);
 
 module.exports = router;
