@@ -91,7 +91,7 @@ body {
 }
 
 /*Listentries*/
-#ListEntry {
+#ListForm {
     display: grid;
     border: dotted darkgray;
     border-radius: 0.5rem;
@@ -99,12 +99,8 @@ body {
     margin: 0.2rem 0;
 }
 
-#ListForm {
-
-}
-
 @media screen and (min-width: 52rem) {
-    #ListEntry {
+    #ListForm {
         grid-template-columns: 8rem 1fr 1fr var(--Btn-width);
     }
 
@@ -162,7 +158,7 @@ body {
 }
 
 @media screen and (max-width: 52rem) {
-    #ListEntry {
+    #ListForm {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -220,4 +216,22 @@ body {
     }
 }
 
-/*new note*/
+/*EditNote*/
+#EditNoteForm {
+    display: grid;
+    margin: 1rem;
+}
+
+
+
+@media screen and (min-width: 52rem){
+    #EditNoteForm{
+        grid-template-columns: var(--Btn-width) var(--Btn-width) var(--Btn-width) 1fr;
+    }
+
+
+}
+
+@media screen and (max-width: 52rem){
+
+}
