@@ -129,7 +129,7 @@ body {
         text-align: end;
     }
 
-    .CheckboxLabel {
+    .FinishedLabel {
         grid-column-start: 1;
         grid-column-end: 2;
         grid-row-start: 2;
@@ -187,7 +187,7 @@ body {
         text-align: end;
     }
 
-    .CheckboxLabel {
+    .FinishedLabel {
         grid-column-start: 1;
         grid-column-end: -1;
         grid-row-start: 3;
@@ -222,14 +222,116 @@ body {
     margin: 1rem;
 }
 
+.Text {
+    height: var(--Btn-height);
+    border-radius: 0.2rem;
+    border-color: darkgray;
+    margin: 0.2rem 0;
+}
 
+.TextArea{
+    resize: vertical;
+    min-height: var(--Btn-height)+var(--Btn-height);
+    max-height: var(--Btn-width);
+    border-radius: 0.2rem;
+    border-color: darkgray;
+    margin: 0.2rem 0;
+}
+
+.Label{
+    margin: auto 1rem auto auto;
+    size: 2rem;
+}
+
+#NoteDoneLabel{
+    margin: 0.5rem 0;
+}
+
+#NoteDone{
+    margin: 0.2rem;
+}
 
 @media screen and (min-width: 52rem){
     #EditNoteForm{
-        grid-template-columns: var(--Btn-width) var(--Btn-width) var(--Btn-width) 1fr;
+        grid-template-columns: 8rem var(--Btn-width) var(--Btn-width) 1fr;
     }
 
+    #NoteTitleLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
 
+    #NoteTitle{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #NoteDescriptionLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #NoteDescription{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #NoteImportanceLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    #NoteImportance{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    #NoteDueToLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+
+    #NoteDueTo{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+
+    #NoteDoneLabel{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+
+    .Save{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+
+    .Cancel{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
 }
 
 @media screen and (max-width: 52rem){
