@@ -211,6 +211,7 @@ body {
         grid-column-end: -1;
         grid-row-start: 5;
         grid-row-end: 6;
+        margin-left: 1rem;
         height: var(--Btn-height);
         width: var(--Btn-width);
     }
@@ -239,11 +240,71 @@ body {
 }
 
 .Label{
-    margin: auto 1rem auto auto;
+    margin: 0.5rem 0 0.2rem 0;
     size: 2rem;
 }
 
+#NoteTitleLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#NoteTitle{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#NoteDescriptionLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#NoteDescription{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#NoteImportanceLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#NoteImportance{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#NoteDueToLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+#NoteDueTo{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
 #NoteDoneLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 9;
+    grid-row-end: 10;
     margin: 0.5rem 0;
 }
 
@@ -251,9 +312,27 @@ body {
     margin: 0.2rem;
 }
 
+.Save{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 10;
+    grid-row-end: 11;
+}
+
+.Cancel{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 10;
+    grid-row-end: 11;
+}
+
 @media screen and (min-width: 52rem){
     #EditNoteForm{
         grid-template-columns: 8rem var(--Btn-width) var(--Btn-width) 1fr;
+    }
+
+    .Label{
+        margin: auto 1rem auto auto;
     }
 
     #NoteTitleLabel{
@@ -334,6 +413,14 @@ body {
     }
 }
 
-@media screen and (max-width: 52rem){
+@media screen and (min-width: 30rem) and (max-width: 52rem){
+    #EditNoteForm{
+        grid-template-columns: var(--Btn-width) var(--Btn-width) 1fr;
+    }
+}
 
+@media screen and (max-width: 30rem){
+    #EditNoteForm{
+        grid-template-columns: 1fr 1fr;
+    }
 }
