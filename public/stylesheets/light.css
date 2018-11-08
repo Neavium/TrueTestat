@@ -1,0 +1,422 @@
+body {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/*a {*/
+/*color: #00B7FF;*/
+/*}*/
+
+:root {
+    --Btn-height: 2rem;
+    --Btn-width: 12rem;
+}
+
+/*Headline index*/
+#HeadForm {
+    display: grid;
+}
+
+#Head {
+    display: inherit;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#Head .Right {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#Subhead {
+    display: inherit;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.Button {
+    height: var(--Btn-height);
+    padding: 0;
+    border-radius: 0.5rem;
+    display: inherit;
+    align-content: center;
+}
+
+@media screen and (min-width: 52rem) {
+    #Head {
+        grid-template-columns: var(--Btn-width) auto var(--Btn-width);
+    }
+
+    #Subhead {
+        grid-template-columns: var(--Btn-width) var(--Btn-width) var(--Btn-width) auto var(--Btn-width);
+    }
+
+    #Subhead .Right {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+}
+
+@media screen and (min-width: 28rem) and (max-width: 52rem) {
+    #Head {
+        grid-template-columns: var(--Btn-width) auto var(--Btn-width);
+    }
+
+    #Subhead .Button {
+        grid-column-start: inherit;
+        grid-column-end: inherit;
+    }
+}
+
+@media screen and (max-width: 28rem) {
+    #Head {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #Head .Right {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+
+    #Subhead .Button {
+        grid-column-start: inherit;
+        grid-column-end: inherit;
+    }
+}
+
+/*Listentries*/
+#ListForm {
+    display: grid;
+    border: dotted darkgray;
+    border-radius: 0.5rem;
+    padding: 0.1rem;
+    margin: 0.2rem 0;
+}
+
+@media screen and (min-width: 52rem) {
+    #ListForm {
+        grid-template-columns: 8rem 1fr 1fr var(--Btn-width);
+    }
+
+    .DueTo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: 1rem;
+    }
+
+    .NoteTitle {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: 1rem;
+    }
+
+    .Importance {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-right: 1rem;
+        text-align: end;
+    }
+
+    .FinishedLabel {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1rem;
+    }
+
+    #TextArea {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .Edit {
+        grid-column-start: 4;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 52rem) {
+    #ListForm {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .DueTo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-left: 1rem;
+    }
+
+    .NoteTitle {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-left: 1rem;
+    }
+
+    .Importance {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-right: 1rem;
+        text-align: end;
+    }
+
+    .FinishedLabel {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        margin-left: 1rem;
+    }
+
+    #TextArea {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .Edit {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        margin-left: 1rem;
+        height: var(--Btn-height);
+        width: var(--Btn-width);
+    }
+}
+
+/*EditNote*/
+#EditNoteForm {
+    display: grid;
+    margin: 1rem;
+}
+
+.Text {
+    height: var(--Btn-height);
+    border-radius: 0.2rem;
+    border-color: darkgray;
+    margin: 0.2rem 0;
+}
+
+.TextArea{
+    resize: vertical;
+    min-height: var(--Btn-height)+var(--Btn-height);
+    max-height: var(--Btn-width);
+    border-radius: 0.2rem;
+    border-color: darkgray;
+    margin: 0.2rem 0;
+}
+
+.Label{
+    margin: 0.5rem 0 0.2rem 0;
+    size: 2rem;
+}
+
+#NoteTitleLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#NoteTitle{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#NoteDescriptionLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+#NoteDescription{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#NoteImportanceLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+#NoteImportance{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 6;
+    grid-row-end: 7;
+}
+
+#NoteDueToLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+#NoteDueTo{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
+#NoteDoneLabel{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 9;
+    grid-row-end: 10;
+    margin: 0.5rem 0;
+}
+
+#NoteDone{
+    margin: 0.2rem;
+}
+
+.Save{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 10;
+    grid-row-end: 11;
+}
+
+.Cancel{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 10;
+    grid-row-end: 11;
+}
+
+@media screen and (min-width: 52rem){
+    #EditNoteForm{
+        grid-template-columns: 8rem var(--Btn-width) var(--Btn-width) 1fr;
+    }
+
+    .Label{
+        margin: auto 1rem auto auto;
+    }
+
+    #NoteTitleLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #NoteTitle{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #NoteDescriptionLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #NoteDescription{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+
+    #NoteImportanceLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    #NoteImportance{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+
+    #NoteDueToLabel{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+
+    #NoteDueTo{
+        grid-column-start: 2;
+        grid-column-end: -1;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+
+    #NoteDoneLabel{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+
+    .Save{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+
+    .Cancel{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+}
+
+@media screen and (min-width: 30rem) and (max-width: 52rem){
+    #EditNoteForm{
+        grid-template-columns: var(--Btn-width) var(--Btn-width) 1fr;
+    }
+}
+
+@media screen and (max-width: 30rem){
+    #EditNoteForm{
+        grid-template-columns: 1fr 1fr;
+    }
+}

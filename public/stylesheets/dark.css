@@ -3,6 +3,8 @@ body {
     margin: 0 auto;
     padding: 2rem;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: black;
+    color: white;
 }
 
 /*a {*/
@@ -42,10 +44,13 @@ body {
 
 .Button {
     height: var(--Btn-height);
-    padding: 0rem;
+    padding: 0;
     border-radius: 0.5rem;
     display: inherit;
     align-content: center;
+    border-color: white;
+    background: black;
+    color: white;
 }
 
 @media screen and (min-width: 52rem) {
@@ -99,6 +104,11 @@ body {
     margin: 0.2rem 0;
 }
 
+#TextArea{
+    background: black;
+    color: white;
+}
+
 @media screen and (min-width: 52rem) {
     #ListForm {
         grid-template-columns: 8rem 1fr 1fr var(--Btn-width);
@@ -112,7 +122,7 @@ body {
         margin-left: 1rem;
     }
 
-    .TextAreaTitle {
+    .NoteTitle {
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 1;
@@ -144,8 +154,6 @@ body {
         grid-row-end: 3;
         margin-left: 1rem;
         margin-right: 1rem;
-        /*max-width: 30rem;*/
-        /*max-height: 5rem;*/
     }
 
     .Edit {
@@ -170,7 +178,7 @@ body {
         margin-left: 1rem;
     }
 
-    .TextAreaTitle {
+    .NoteTitle {
         grid-column-start: 1;
         grid-column-end: -1;
         grid-row-start: 2;
@@ -202,8 +210,6 @@ body {
         grid-row-end: 5;
         margin-left: 1rem;
         margin-right: 1rem;
-        /*max-width: 30rem;*/
-        /*max-height: 5rem;*/
     }
 
     .Edit {
@@ -226,8 +232,10 @@ body {
 .Text {
     height: var(--Btn-height);
     border-radius: 0.2rem;
-    border-color: darkgray;
+    border-color: lightgray;
     margin: 0.2rem 0;
+    background: black;
+    color: white;
 }
 
 .TextArea{
@@ -235,8 +243,10 @@ body {
     min-height: var(--Btn-height)+var(--Btn-height);
     max-height: var(--Btn-width);
     border-radius: 0.2rem;
-    border-color: darkgray;
+    border-color: lightgray;
     margin: 0.2rem 0;
+    background: black;
+    color: white;
 }
 
 .Label{

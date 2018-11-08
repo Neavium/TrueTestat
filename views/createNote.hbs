@@ -1,0 +1,23 @@
+<h2 id="EditNoteHead">Create Note</h2>
+<form id="EditNoteForm">
+    <label id="NoteTitleLabel" class="Label" for="NoteTitle">Title</label>
+    <input type="text" id="NoteTitle" class="Text" required>
+    <label id="NoteDescriptionLabel" class="Label" for="NoteDescription">Description</label>
+    <textarea id="NoteDescription" class="TextArea" required></textarea>
+    <label id="NoteImportanceLabel" class="Label" for="NoteImportance">Importance</label>
+    <select id="NoteImportance" class="Text" required>
+        <option value="">Choose one</option>
+        <option value="1">*</option>
+        <option value="2">**</option>
+        <option value="3">***</option>
+        <option value="4">****</option>
+        <option value="5">*****</option>
+    </select>
+    <label id="NoteDueToLabel" class="Label" for="NoteDueTo">Due to</label>
+    <input type="date" id="NoteDueTo" class="Date Text" required>
+    <label id="NoteDoneLabel" class="Label" for="NoteDone">
+        <input type="checkbox" id="NoteDone" class="NoteDoneCheckbox">Done
+    </label>
+    <input class="Button Save" type="submit" formmethod="get" formaction="/note/createNote" value="Save">
+    <input class="Button Cancel" type="button" formmethod="get" formaction="/index" value="Cancel">
+</form>
