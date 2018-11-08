@@ -1,10 +1,10 @@
 <form id="ListForm">
-    <a class="DueTo">Time</a>
+    <a class="DueTo">{{DueTo}}</a>
     <label class="FinishedLabel" for="FinishedCheckbox">Done
-        <input id="FinishedCheckbox" type="checkbox">
+        <input id="FinishedCheckbox" type="checkbox" {{FinishedCheckbox}}>
     </label>
-    <label class="TextAreaTitle" for="TextArea">Title</label>
-    <textarea id="TextArea">this is a text</textarea>
-    <a class="Importance">Importance</a>
+    <label class="NoteTitle" for="TextArea">{{NoteTitle}}</label>
+    <textarea id="TextArea">{{NoteDescription}}</textarea>
+    <a class="Importance">{{Importance}}</a>
     <input type="submit" formmethod="get" formaction="/editNote" class="Button Edit" value="Edit">
 </form>
