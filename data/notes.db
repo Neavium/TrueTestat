@@ -1,8 +1,8 @@
 {"noteContent":"noteContent","createdAtDate":{"$$date":1541699303832},"dueUntilDate":{"$$date":1541699303827},"importance":5,"state":"OK","_id":"9cq5shfrS77LMlwl"}
 {"noteContent":"noteContent","createdAtDate":{"$$date":1541706141400},"dueUntilDate":{"$$date":1541706141400},"importance":5,"state":"OK","_id":"Iznd06QcL5XiK8PQ"}
+{"noteTitle":"blub","noteContent":"blub","createdAtDate":{"$$date":1541707091718},"dueUntilDate":"2017-09-07","importance":"2","state":"OK","_id":"JJWFq8dZFoiHZPow"}
 {"noteTitle":"testTitle","noteContent":"testDescription","createdAtDate":{"$$date":1541706629508},"dueUntilDate":"1337-11-21","importance":"1","state":"OK","_id":"ZwKFFNH7uhfBesCr"}
 {"noteContent":"noteContent","createdAtDate":{"$$date":1541699503477},"dueUntilDate":{"$$date":1541699503475},"importance":5,"state":"OK","_id":"h7IOUr4S1fIYdDtu"}
 {"noteContent":"noteContent","createdAtDate":{"$$date":1541706187054},"dueUntilDate":{"$$date":1541706187054},"importance":5,"state":"OK","_id":"iY6XyWg55A3mNepC"}
 {"noteContent":"noteContent","createdAtDate":{"$$date":1541705670537},"dueUntilDate":{"$$date":1541705670536},"importance":5,"state":"OK","_id":"tLqWUbZUfw2M6LZ5"}
 {"noteContent":"noteContent","createdAtDate":{"$$date":1541706157184},"dueUntilDate":{"$$date":1541706157184},"importance":5,"state":"OK","_id":"wmSKWhf4wCFm7UgA"}
-{"noteTitle":"blub","noteContent":"blub","createdAtDate":{"$$date":1541707091718},"dueUntilDate":"2017-09-07","importance":"2","state":"OK","_id":"JJWFq8dZFoiHZPow"}

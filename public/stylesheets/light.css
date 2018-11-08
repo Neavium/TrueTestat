@@ -5,9 +5,17 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/*a {*/
-/*color: #00B7FF;*/
-/*}*/
+.EmptyList {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: lightblue;
+    border-radius: 0.2rem;
+}
+
+.emptyListText {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
 
 :root {
     --Btn-height: 2rem;
