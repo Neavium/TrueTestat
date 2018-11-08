@@ -1,7 +1,7 @@
 
 export class IndexController {
     showIndex(req, res) {
-        res.render('index', {title: 'TrueTestat'});
+        res.render("index" ,{layout: "layout", title: 'TrueTestat'});
     };
 
     createNote(req, res) {

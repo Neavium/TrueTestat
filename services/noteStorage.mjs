@@ -3,12 +3,13 @@ import Datastore from 'nedb-promise'
 // const db = new Datastore({filename: './data/notes.db', autoload: true});
 
 export class Note {
-    constructor(noteTitle, noteContent, dueUntilDate, importance) {
+    constructor(noteTitle, noteContent, dueUntilDate, importance, done) {
         this.noteTitle = noteTitle;
         this.noteContent = noteContent;
         this.createdAtDate = new Date();
         this.dueUntilDate = dueUntilDate;
         this.importance = importance;
+        this.done = done;
         this.state = "OK";
     }
 }
@@ -18,9 +19,9 @@ export class NoteStorage {
         this.db = db || new Datastore({filename: './data/notes.db', autoload: true});
     }
 
-    async add(noteTitle, noteContent, dueUntilDate, importance) {
-        let order = new Order(noteTitle, noteContent, dueUntilDate, importance);
-        return await this.db.insert(order);
+    async add(noteTitle, noteContent, dueUntilDate, importance, done) {
+        let note = new Note(noteTitle, noteContent, dueUntilDate, importance, done);
+        return await this.db.insert(note);
     }
 
     async delete(id) {
@@ -38,19 +39,3 @@ export class NoteStorage {
 }
 
 export const noteStorage = new NoteStorage();
-
-
-// function publicAddNote(noteTitle, noteContent, dueUntilDate, importance, callback)
-// {
-//     console.log("  publicAddOrder start");
-//     let note = new Note(noteTitle, noteContent, dueUntilDate, importance);
-//     db.insert(note, function(err, newDoc){
-//         console.log("    insert");
-//         if(callback){
-//             callback(err, newDoc);
-//         }
-//     });
-//     console.log("  publicAddNote end");
-// }
-//
-// module.exports = {add:publicAddNote};
