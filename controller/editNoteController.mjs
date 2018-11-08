@@ -10,11 +10,14 @@ export class EditNoteController {
     };
 
     async saveNote(req, res) {
-        await res.render("index", await noteStorage.add("noteTitle", "noteContent", new Date(), 5));
+        res.redirect("/");
+        console.log(req.body);
+        await noteStorage.add(req.body.noteTitle, req.body.noteDescription, req.body.noteDueTo, req.body.noteImportance, req.body.noteDone);
     };
 
     async showNote(req, res) {
-        // await res.render("showorder", await orderStore.get(req.params.id));
+        res.render("editNote");
+        //await res.render("showorder", await orderStore.get(req.params.id));
     };
 
     async deleteNote(req, res) {

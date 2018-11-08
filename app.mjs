@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(overrideMiddleware);
 app.use('/', indexRoutes);
-app.use("/notes", noteRoutes);
+app.use("/note", noteRoutes);
 app.use(express.static(path.resolve('public')));
 
 const hostname = '127.0.0.1';
