@@ -1,14 +1,6 @@
 import {noteStorage} from '../services/noteStorage.mjs'
 
 export class EditNoteController {
-    showIndex(req, res) {
-        res.render("index");
-    };
-
-    createOrder(req, res) {
-        res.render("editNote");
-    };
-
     async saveNote(req, res) {
         res.redirect("/");
         console.log(req.body);
@@ -16,7 +8,7 @@ export class EditNoteController {
     };
 
     async showNote(req, res) {
-        res.render("editNote");
+        res.render("editNote", {layout: "layout", title: "Edit Note"});
         //await res.render("showorder", await orderStore.get(req.params.id));
     };
 
