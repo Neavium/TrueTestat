@@ -7,13 +7,24 @@ export class EditNoteController {
         await noteStorage.add(req.body.noteTitle, req.body.noteDescription, req.body.noteDueTo, req.body.noteImportance, req.body.noteDone);
     };
 
-    async showNote(req, res) {
-        res.render("editNote", {layout: "layout", title: "Edit Note"});
-        //await res.render("showorder", await orderStore.get(req.params.id));
+    async createNote(req, res) {
+        res.render("createNote", {layout: "layout", title: "Create Note"});
     };
 
+    async updateNote(req, res){
+        //todo: update DB with new note information
+        //bsp: await res.render("showorder", await orderStore.get(req.params.id));
+        console.log("updating entry");
+        res.redirect("/");
+    }
+
+    async editNote(req, res){
+        //todo: get note object from DB for Handlebars Template
+        await res.render("editNote", {layout: "layout", title: "Edit Note"});
+    }
+
     async deleteNote(req, res) {
-        // await res.render("showorder", await orderStore.delete(req.params.id));
+        //todo: delete note from DB
     };
 }
 export const editNoteController = new EditNoteController();

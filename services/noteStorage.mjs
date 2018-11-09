@@ -24,6 +24,11 @@ export class NoteStorage {
         return await this.db.insert(note);
     }
 
+    async update(noteTitle, noteContent, dueUntilDate, importance, done){
+        await this.db.update({_id: id}, {$set: {}});
+        return await this.get(id);
+    }
+
     async delete(id) {
         // await this.db.update({_id: id}, {$set: {"state": "DELETED"}});
         // return await this.get(id);
