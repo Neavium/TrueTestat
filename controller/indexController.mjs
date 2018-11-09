@@ -9,7 +9,7 @@ export class IndexController {
         res.render("index",
             {
                 layout: "layout",
-                css: cssStyle,
+                css: req.userSettings.cssStyle,
                 title: 'Note Master',
                 node: db
             });
@@ -20,12 +20,14 @@ export class IndexController {
     }
 
     styleSwitch(req, res) {
-        cssStyle = cssStyle === "dark.css" ? "light.css" : "dark.css";
-        res.redirect("/");
+        if(req.userSettings.cssStyle === "dark.css"){
+            res.redirect("/?cssStyle=light.css");
+        }else{
+            res.redirect("/?cssStyle=dark.css");
+        }
     }
 
     async sortFinishDate(req, res) {
-        console.log(req.userSettings.orderBy);
         await changeOrderQuery("dueUntilDate", req, res);
     }
 
@@ -43,7 +45,7 @@ export class IndexController {
         res.render("index",
             {
                 layout: "layout",
-                css: 'dark.css',
+                css: req.userSettings.cssStyle,
                 title: 'Note Master',
                 node: db
             });
@@ -66,5 +68,7 @@ function changeOrderQuery(orderBy, req, res){
         res.redirect("/?orderBy=" + orderBy + "&orderDirection=1");
     }
 }
+
+
 
 export const indexController = new IndexController();
