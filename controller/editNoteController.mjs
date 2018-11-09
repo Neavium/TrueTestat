@@ -38,7 +38,6 @@ export class EditNoteController {
     }
 
     async editNote(req, res) {
-        //todo: get note object from DB to populate Handlebars Template
         await res.render("editNote", Object.assign({}, {
             layout: "layout",
             css: req.userSettings.cssStyle,

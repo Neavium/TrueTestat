@@ -17,26 +17,35 @@ app.set('views', path.resolve('views'));
 registerHelpers(hbs);
 
 //Custom helper for list entries of notes
-hbs.registerHelper('listEntry', function (data, options) {
+hbs.registerHelper('listEntry', function (data, req, options) {
     if (data === undefined || data === null || data.length < 1) {
         return options.inverse(this);
     }
     let str = "";
+    let hideFinished
+    if(req === undefined || req.userSettings === undefined){
+        hideFinished = "false";
+    }else{
+        hideFinished = req.userSettings.hideFinished;
+    }
     for (let i = 0; i < data.length; i++) {
-        str += "<form id=\"ListForm\">";
-        str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
-        str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
-        str += "<input id=\"FinishedCheckbox\" type=\"checkbox\" " + data[i]['done'] + " >"; // needs a checkbox field that has "checked" if so...
-        str += "</label>";
-        str += "<label class=\"NoteTitle\" for=\"TextArea\">" + data[i]['noteTitle'] + "</label>"; // needs a note title field
-        str += "<textarea id=\"TextArea\" readonly>" + data[i]['noteContent'] + "</textarea>";
-        let importanceStr = "";
-        for (let imp = 0; imp < data[i]['importance']; imp++) {
-            importanceStr += "*";
+        if(!(hideFinished === "false" && (data[i]["done"] === "checked"))){
+            str += "<form id=\"ListForm\">";
+            str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
+            str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
+            str += "<input id=\"FinishedCheckbox\" type=\"checkbox\" " + data[i]['done'] + " >"; // needs a checkbox field that has "checked" if so...
+            str += "</label>";
+            str += "<label class=\"NoteTitle\" for=\"TextArea\">" + data[i]['noteTitle'] + "</label>"; // needs a note title field
+            str += "<textarea id=\"TextArea\" readonly>" + data[i]['noteContent'] + "</textarea>";
+            let importanceStr = "";
+            for (let imp = 0; imp < data[i]['importance']; imp++) {
+                importanceStr += "*";
+            }
+            str += "<a class=\"Importance\">" + importanceStr + "</a>";
+            str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/note/editNote/" + data[i]["_id"] + "\" class=\"Button Edit\" value=\"Edit\">";
+            str += "</form>";
         }
-        str += "<a class=\"Importance\">" + importanceStr + "</a>";
-        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/note/editNote/" + data[i]["_id"] + "\" class=\"Button Edit\" value=\"Edit\">";
-        str += "</form>";
+
     }
     return new hbs.SafeString(str);
 });

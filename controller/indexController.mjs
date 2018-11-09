@@ -11,7 +11,8 @@ export class IndexController {
                 layout: "layout",
                 css: req.userSettings.cssStyle,
                 title: 'Note Master',
-                node: db
+                node: db,
+                req: req
             });
     };
 
@@ -39,20 +40,26 @@ export class IndexController {
         await changeOrderQuery("importance", req, res);
     }
 
-    async hideFinished(req, res) {
-        let db = await noteStorage.getAllUnfinished();
-        console.log(db);
-        res.render("index",
-            {
-                layout: "layout",
-                css: req.userSettings.cssStyle,
-                title: 'Note Master',
-                node: db
-            });
+    hideFinished(req, res) {
+        if(req.userSettings.hideFinished === "false"){
+            res.redirect("/?hideFinished=true");
+        }else{
+            res.redirect("/?hideFinished=false");
+        }
+
+
+        // let db = await noteStorage.getAllUnfinished();
+        // res.render("index",
+        //     {
+        //         layout: "layout",
+        //         css: req.userSettings.cssStyle,
+        //         title: 'Note Master',
+        //         node: db,
+        //         req: req
+        //     });
     }
 
     editNote(req, res) {
-        // res.send("editing not implemented yet");
         res.redirect("/note/editNote/:id");
     }
 }
