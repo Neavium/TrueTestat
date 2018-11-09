@@ -5,14 +5,7 @@
     <label id="NoteDescriptionLabel" class="Label" for="NoteDescription">Description</label>
     <textarea name="noteDescription" id="NoteDescription" class="TextArea" required></textarea>
     <label id="NoteImportanceLabel" class="Label" for="NoteImportance">Importance</label>
-    <select name="noteImportance" id="NoteImportance" class="Text" required>
-        <option value="">Choose one</option>
-        <option value="1">*</option>
-        <option value="2">**</option>
-        <option value="3">***</option>
-        <option value="4">****</option>
-        <option value="5">*****</option>
-    </select>
+    <input name="noteImportance" type="number" id="NoteImportance" class="Text" min="1" max="5" required>
     <label id="NoteDueToLabel" class="Label" for="NoteDueTo">Due to</label>
     <input name="noteDueTo" type="date" id="NoteDueTo" class="Date Text" required>
     <label id="NoteDoneLabel" class="Label" for="NoteDone">

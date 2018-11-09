@@ -24,16 +24,16 @@ hbs.registerHelper('listEntry', function (data, options) {
         str += "<form id=\"ListForm\">";
         str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
         str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
-        str += "<input id=\"FinishedCheckbox\" type=\"checkbox\"" + data[i]['done'] + ">"; // needs a checkbox field that has "checked" if so...
+        str += "<input id=\"FinishedCheckbox\" type=\"checkbox\" " + data[i]['done'] + " >"; // needs a checkbox field that has "checked" if so...
         str += "</label>";
         str += "<label class=\"NoteTitle\" for=\"TextArea\">" + data[i]['noteTitle'] + "</label>"; // needs a note title field
-        str += "<textarea id=\"TextArea\">" + data[i]['noteContent'] + "</textarea>";
+        str += "<textarea id=\"TextArea\" readonly>" + data[i]['noteContent'] + "</textarea>";
         let importanceStr = "";
         for (let imp = 0; imp < data[i]['importance']; imp++) {
             importanceStr += "*";
         }
         str += "<a class=\"Importance\">" + importanceStr + "</a>";
-        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/editNote\" class=\"Button Edit\" value=\"Edit\">";
+        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/note/editNote/" + data[i]["_id"] + "\" class=\"Button Edit\" value=\"Edit\">";
         str += "</form>";
     }
     return new hbs.SafeString(str);

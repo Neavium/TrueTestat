@@ -107,6 +107,12 @@ body {
     margin: 0.2rem 0;
 }
 
+#TextArea {
+    resize: vertical;
+    min-height: 4rem;
+    max-height: var(--Btn-width);
+}
+
 @media screen and (min-width: 52rem) {
     #ListForm {
         grid-template-columns: 8rem 1fr 1fr var(--Btn-width);
@@ -159,7 +165,9 @@ body {
         grid-column-end: 5;
         grid-row-start: 2;
         grid-row-end: 3;
-        height: auto;
+        margin: auto;
+        height: 4rem;
+        width: var(--Btn-width);
     }
 }
 
@@ -229,6 +237,7 @@ body {
 
 .Text {
     height: var(--Btn-height);
+    width: auto;
     border-radius: 0.2rem;
     border-color: darkgray;
     margin: 0.2rem 0;
@@ -236,7 +245,7 @@ body {
 
 .TextArea{
     resize: vertical;
-    min-height: var(--Btn-height)+var(--Btn-height);
+    min-height: 4rem;
     max-height: var(--Btn-width);
     border-radius: 0.2rem;
     border-color: darkgray;

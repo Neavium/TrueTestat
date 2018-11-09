@@ -5,7 +5,8 @@ let cssStyle = "dark.css";
 export class IndexController {
     async showIndex(req, res) {
         let db = await noteStorage.all();
-        res.render("index" , {layout: "layout", css: 'dark.css', title: 'Note Master',
+        console.log(db);
+        res.render("index" , {layout: "layout", css: cssStyle, title: 'Note Master',
              node: db});
     };
 
@@ -15,7 +16,7 @@ export class IndexController {
     }
 
     styleSwitch(req, res) {
-        cssStyle=cssStyle==="dark.css"?"light.css":"dark.css";
+        cssStyle = cssStyle==="dark.css"?"light.css":"dark.css";
         res.redirect("/");
     }
 
