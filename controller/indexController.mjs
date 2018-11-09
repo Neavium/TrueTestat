@@ -1,5 +1,7 @@
 import {noteStorage} from '../services/noteStorage.mjs'
 
+let cssStyle = "dark.css";
+
 export class IndexController {
     async showIndex(req, res) {
         let db = await noteStorage.all();
@@ -13,29 +15,33 @@ export class IndexController {
     }
 
     styleSwitch(req, res) {
-        res.send("Style Switch: Not implemented yet, sorry");
+        cssStyle=cssStyle==="dark.css"?"light.css":"dark.css";
+        res.redirect("/");
     }
 
     sortFinishDate(req, res) {
+        //todo: sort by finish date
         res.send("Sort by Finish Date: Not implemented yet, sorry");
     }
 
     sortCreateDate(req, res) {
+        //todo: sort by creation date
         res.send("Sort by Creation Date: Not implemented yet, sorry");
     }
 
     sortImportance(req, res) {
-        
+        //todo: sort by importance
         res.send("Sort by Importance: Not implemented yet, sorry");
     }
 
     hideFinished(req, res) {
+        //todo: hide finished
         res.send("hide Finished: Not implemented yet, sorry");
     }
 
     editNote(req, res) {
         // res.send("editing not implemented yet");
-        res.redirect("/note/editNote");
+        res.redirect("/note/editNote/:id");
     }
 }
 

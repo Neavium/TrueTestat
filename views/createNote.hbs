@@ -1,11 +1,11 @@
 <h2 id="EditNoteHead">Create Note</h2>
 <form id="EditNoteForm">
     <label id="NoteTitleLabel" class="Label" for="NoteTitle">Title</label>
-    <input type="text" id="NoteTitle" class="Text" required>
+    <input name="noteTitle" type="text" id="NoteTitle" class="Text" required>
     <label id="NoteDescriptionLabel" class="Label" for="NoteDescription">Description</label>
-    <textarea id="NoteDescription" class="TextArea" required></textarea>
+    <textarea name="noteDescription" id="NoteDescription" class="TextArea" required></textarea>
     <label id="NoteImportanceLabel" class="Label" for="NoteImportance">Importance</label>
-    <select id="NoteImportance" class="Text" required>
+    <select name="noteImportance" id="NoteImportance" class="Text" required>
         <option value="">Choose one</option>
         <option value="1">*</option>
         <option value="2">**</option>
@@ -14,10 +14,12 @@
         <option value="5">*****</option>
     </select>
     <label id="NoteDueToLabel" class="Label" for="NoteDueTo">Due to</label>
-    <input type="date" id="NoteDueTo" class="Date Text" required>
+    <input name="noteDueTo" type="date" id="NoteDueTo" class="Date Text" required>
     <label id="NoteDoneLabel" class="Label" for="NoteDone">
-        <input type="checkbox" id="NoteDone" class="NoteDoneCheckbox">Done
+        <input name="noteDone" type="checkbox" id="NoteDone" class="NoteDoneCheckbox">Done
     </label>
     <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/saveNote" value="Save">
-    <input class="Button Cancel" type="button" formmethod="get" formaction="/index" value="Cancel">
+    <input class="Button Cancel" type="submit" form="dummyForm" formmethod="get" formaction="/" value="Cancel">
+</form>
+<form id="dummyForm">
 </form>

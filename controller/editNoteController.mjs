@@ -1,13 +1,6 @@
 import {noteStorage} from '../services/noteStorage.mjs'
 
 export class EditNoteController {
-    showIndex(req, res) {
-        res.render("index");
-    };
-
-    createNote(req, res) {
-        res.render("createNote", {layout: "layout", css: "dark.css"});
-    };
 
     async saveNote(req, res) {
         res.redirect("/");
@@ -15,7 +8,19 @@ export class EditNoteController {
         await noteStorage.add(req.body.noteTitle, req.body.noteDescription, req.body.noteDueTo, req.body.noteImportance, req.body.noteDone);
     };
 
-    async showNote(req, res) {
+    async createNote(req, res) {
+        res.render("createNote", {layout: "layout", css: "dark.css", title: "Create Note"});
+    };
+
+    async updateNote(req, res){
+        //todo: update DB with new note information
+        //bsp: await res.render("showorder", await orderStore.get(req.params.id));
+        console.log("updating entry");
+        res.redirect("/");
+    }
+
+    async editNote(req, res){
+        //todo: get note object from DB to populate Handlebars Template
         let note = noteStorage.get(req.query.id);
         let imp = "";
         switch (note.importance) {
@@ -36,11 +41,12 @@ export class EditNoteController {
             imp: "selected",
             date: note.dueUntilDate,
             NoteDoneCheckbox: checked});
-        //await res.render("showorder", await orderStore.get(req.params.id));
-    };
+
+        // await res.render("editNote", {layout: "layout", css: "dark.css", title: "Edit Note"}, await noteStorage.get(req.params.id));
+    }
 
     async deleteNote(req, res) {
-        // await res.render("showorder", await orderStore.delete(req.params.id));
+        //todo: delete note from DB
     };
 }
 export const editNoteController = new EditNoteController();
