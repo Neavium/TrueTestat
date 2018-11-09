@@ -10,3 +10,11 @@
         <input type="submit" formmethod="get" formaction="/hideFinished" class="Button Right" value="Hide Finished">
     </div>
 </form>
+<div class="ListEntry">
+    {{#listEntry node}}
+    {{else}}
+        <div class="EmptyList">
+            <p class="emptyListText" id="EmptyListText">No note found</p>
+        </div>
+    {{/listEntry}}
+</div>
