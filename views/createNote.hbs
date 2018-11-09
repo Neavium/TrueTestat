@@ -18,6 +18,6 @@
     <label id="NoteDoneLabel" class="Label" for="NoteDone">
         <input type="checkbox" id="NoteDone" class="NoteDoneCheckbox">Done
     </label>
-    <input class="Button Save" type="submit" formmethod="get" formaction="/note/createNote" value="Save">
+    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/saveNote" value="Save">
     <input class="Button Cancel" type="button" formmethod="get" formaction="/index" value="Cancel">
 </form>

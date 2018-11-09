@@ -9,7 +9,7 @@ export class IndexController {
 
     createNote(req, res) {
         // res.send("Create Note: Not implemented yet, sorry");
-        res.redirect("/note")
+        res.redirect("/note/createNote")
     }
 
     styleSwitch(req, res) {
@@ -25,6 +25,7 @@ export class IndexController {
     }
 
     sortImportance(req, res) {
+        
         res.send("Sort by Importance: Not implemented yet, sorry");
     }
 
@@ -34,7 +35,7 @@ export class IndexController {
 
     editNote(req, res) {
         // res.send("editing not implemented yet");
-        res.redirect("/note");
+        res.redirect("/note/editNote");
     }
 }
 

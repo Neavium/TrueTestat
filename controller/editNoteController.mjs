@@ -5,8 +5,8 @@ export class EditNoteController {
         res.render("index");
     };
 
-    createOrder(req, res) {
-        res.render("editNote");
+    createNote(req, res) {
+        res.render("createNote", {layout: "layout", css: "dark.css"});
     };
 
     async saveNote(req, res) {
@@ -16,7 +16,26 @@ export class EditNoteController {
     };
 
     async showNote(req, res) {
-        res.render("editNote");
+        let note = noteStorage.get(req.query.id);
+        let imp = "";
+        switch (note.importance) {
+            case 1: imp = "importance1"; break;
+            case 2: imp = "importance2"; break;
+            case 3: imp = "importance3"; break;
+            case 4: imp = "importance4"; break;
+            case 5: imp = "importance5"; break;
+            default: imp = "";
+        }
+        let checked = "";
+        if(note.done){
+            checked = "checked";
+        }
+        res.render("editNote", {layout: "layout", css: "dark.css" ,
+            noteTitle: note.noteTitle,
+            description: note.noteDescription,
+            imp: "selected",
+            date: note.dueUntilDate,
+            NoteDoneCheckbox: checked});
         //await res.render("showorder", await orderStore.get(req.params.id));
     };
 
