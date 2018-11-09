@@ -2,3 +2,4 @@
 {"noteTitle":"test","noteContent":"test","createdAtDate":{"$$date":1541760688590},"dueUntilDate":"2017-10-08","importance":"2","done":"on","state":"OK","_id":"67dKibKNRRMKd4zl"}
 {"noteTitle":"testTitle","noteContent":"testdesc","createdAtDate":{"$$date":1541771878349},"dueUntilDate":"2018-12-04","importance":"5","done":"checked","state":"OK","_id":"6FEibVQrXLBRq2W1"}
 {"noteTitle":"1","noteContent":"1","createdAtDate":{"$$date":1541771347743},"dueUntilDate":"2016-09-15","importance":"1","done":"on","state":"OK","_id":"d6fsw0cf52CSdExy"}
+{"noteTitle":"Testsdfjölsadj","noteContent":"jadf\r\ndkljf\r\n\r\nskldfj\r\n\r\n\r\nsadfkl\r\nsdfjklö","createdAtDate":{"$$date":1541801009709},"dueUntilDate":"2020-11-14","importance":"3","done":"checked","state":"OK","_id":"GFGrrzBlALxVQeFb"}

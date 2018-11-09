@@ -1,11 +1,12 @@
 import {noteStorage} from '../services/noteStorage.mjs'
+import {editNoteController} from "./editNoteController";
 
 let cssStyle = "dark.css";
 
 export class IndexController {
     async showIndex(req, res) {
-        let db = await noteStorage.all();
-        // console.log(db);
+        console.log(req.userSettings.orderBy, req.userSettings.orderDirection);
+        let db = await noteStorage.sortBy(req.userSettings.orderBy, parseInt(req.userSettings.orderDirection));
         res.render("index",
             {
                 layout: "layout",
@@ -46,17 +47,6 @@ export class IndexController {
         }else{
             res.redirect("/?hideFinished=false");
         }
-
-
-        // let db = await noteStorage.getAllUnfinished();
-        // res.render("index",
-        //     {
-        //         layout: "layout",
-        //         css: req.userSettings.cssStyle,
-        //         title: 'Note Master',
-        //         node: db,
-        //         req: req
-        //     });
     }
 
     editNote(req, res) {

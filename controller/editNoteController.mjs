@@ -46,7 +46,7 @@ export class EditNoteController {
     }
 
     async deleteNote(req, res) {
-        //todo: delete note from DB
+        //TODO: delete note from DB
     };
 }
 

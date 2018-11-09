@@ -51,13 +51,10 @@ export class NoteStorage {
         return await this.db.find({});
     }
 
-    async sortByFinishDate(){
-        return await this.db.find({}).sort();
-    }
-
-    async getAllUnfinished(){
-        return await this.db.find({done: {$exists: false}});
+    async sortBy(sortBy, sortDirection) {
+        return await this.db.cfind({}).sort({[sortBy]: sortDirection}).exec();
     }
 }
+
 
 export const noteStorage = new NoteStorage();

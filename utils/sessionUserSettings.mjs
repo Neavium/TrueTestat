@@ -1,6 +1,6 @@
 export function sessionUserSettings(req, res, next){
     // default Wert oder aktueller Wert von der Session lesen
-    const userSettings = req.session.userSettings || {orderBy: 'default', orderDirection: -1, cssStyle: "dark.css", hideFinished: false};
+    const userSettings = req.session.userSettings || {orderBy: "dueUntilDate", orderDirection: -1, cssStyle: "dark.css", hideFinished: false};
     const {orderBy, orderDirection, cssStyle, hideFinished} = req.query;
 
     if (orderBy) {
