@@ -50,6 +50,14 @@ export class NoteStorage {
     async all() {
         return await this.db.find({});
     }
+
+    async sortByFinishDate(){
+        return await this.db.find({}).sort();
+    }
+
+    async getAllUnfinished(){
+        return await this.db.find({done: {$exists: false}});
+    }
 }
 
 export const noteStorage = new NoteStorage();
