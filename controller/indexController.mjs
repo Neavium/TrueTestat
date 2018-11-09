@@ -1,12 +1,10 @@
+import {noteStorage} from '../services/noteStorage.mjs'
 
 export class IndexController {
-    showIndex(req, res) {
-        res.render("index" ,{layout: "layout", css: 'dark.css', title: 'Note Master',
-            node: [
-                {"noteTitle":"blub","noteContent":"blub","createdAtDate":{"$$date":1541707091718},"dueUntilDate":"2017-09-07","importance":"2","state":"OK","_id":"JJWFq8dZFoiHZPow"},
-                {"noteTitle":"testTitle","noteContent":"testDescription","createdAtDate":{"$$date":1541706629508},"dueUntilDate":"1337-11-21","importance":"1","state":"OK","_id":"ZwKFFNH7uhfBesCr"}
-                ]
-        });
+    async showIndex(req, res) {
+        let db = await noteStorage.all();
+        res.render("index" , {layout: "layout", css: 'dark.css', title: 'Note Master',
+             node: db});
     };
 
     createNote(req, res) {

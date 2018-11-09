@@ -16,7 +16,7 @@ registerHelpers(hbs);
 
 //Custom helper for list entries of notes
 hbs.registerHelper('listEntry', function (data, options) {
-    if (data === undefined || data === null) {
+    if (data === undefined || data === null || data.length < 1) {
         return options.inverse(this);
     }
     let str = "";
@@ -24,9 +24,9 @@ hbs.registerHelper('listEntry', function (data, options) {
         str += "<form id=\"ListForm\">";
         str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
         str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
-        str += "<input id=\"FinishedCheckbox\" type=\"checkbox\" checked>"; // needs a checkbox field that has "checked" if so...
+        str += "<input id=\"FinishedCheckbox\" type=\"checkbox\"" + data[i]['done'] + ">"; // needs a checkbox field that has "checked" if so...
         str += "</label>";
-        str += "<label class=\"NoteTitle\" for=\"TextArea\">Title</label>"; // needs a note title field
+        str += "<label class=\"NoteTitle\" for=\"TextArea\">" + data[i]['noteTitle'] + "</label>"; // needs a note title field
         str += "<textarea id=\"TextArea\">" + data[i]['noteContent'] + "</textarea>";
         let importanceStr = "";
         for (let imp = 0; imp < data[i]['importance']; imp++) {
@@ -37,12 +37,6 @@ hbs.registerHelper('listEntry', function (data, options) {
         str += "</form>";
     }
     return new hbs.SafeString(str);
-    // noteContent":"noteContent",                      data[i]['noteContent']
-    // "createdAtDate":{"$$date":1541706157184},        data[i]['createdAtDat']
-    // "dueUntilDate":{"$$date":1541706157184},         data[i]['dueUntilDate']
-    // "importance":5,                                  data[i]['importance']
-    // "state":"OK",                                    data[i]['state']
-    // "_id":"wmSKWhf4wCFm7UgA"                         data[i]['_id']
 });
 
 app.use(bodyParser.urlencoded({extended: false}));
