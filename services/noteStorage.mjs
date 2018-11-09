@@ -39,7 +39,7 @@ export class NoteStorage {
     }
 
     async all() {
-        // return await this.db.find({});
+         return await this.db.find({});
     }
 }
 
