@@ -8,7 +8,7 @@ export class EditNoteController {
     };
 
     async createNote(req, res) {
-        res.render("createNote", {layout: "layout", title: "Create Note"});
+        res.render("createNote", {layout: "layout", css: "dark.css", title: "Create Note"});
     };
 
     async updateNote(req, res){
@@ -19,8 +19,8 @@ export class EditNoteController {
     }
 
     async editNote(req, res){
-        //todo: get note object from DB for Handlebars Template
-        await res.render("editNote", {layout: "layout", title: "Edit Note"});
+        //todo: get note object from DB to populate Handlebars Template
+        await res.render("editNote", {layout: "layout", css: "dark.css", title: "Edit Note"}, await noteStorage.get(req.params.id));
     }
 
     async deleteNote(req, res) {
