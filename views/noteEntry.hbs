@@ -4,7 +4,7 @@
         <input id="FinishedCheckbox" type="checkbox" {{FinishedCheckbox}}>
     </label>
     <label class="NoteTitle" for="TextArea">{{NoteTitle}}</label>
-    <textarea id="TextArea">{{NoteDescription}}</textarea>
+    <textarea id="TextArea">{{_id}}</textarea>
     <a class="Importance">{{Importance}}</a>
     <input type="submit" formmethod="get" formaction="/note/editNote/{{_id}}" class="Button Edit" value="Edit">
 </form>

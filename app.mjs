@@ -33,7 +33,7 @@ hbs.registerHelper('listEntry', function (data, options) {
             importanceStr += "*";
         }
         str += "<a class=\"Importance\">" + importanceStr + "</a>";
-        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/editNote\" class=\"Button Edit\" value=\"Edit\">";
+        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/note/editNote/" + data[i]["_id"] + "\" class=\"Button Edit\" value=\"Edit\">";
         str += "</form>";
     }
     return new hbs.SafeString(str);

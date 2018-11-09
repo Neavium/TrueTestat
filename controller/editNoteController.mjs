@@ -11,20 +11,30 @@ export class EditNoteController {
         res.render("createNote", {layout: "layout", css: "dark.css", title: "Create Note"});
     };
 
-    async updateNote(req, res){
-        //todo: update DB with new note information
-        //bsp: await res.render("showorder", await orderStore.get(req.params.id));
+    async updateNote(req, res) {
+        noteStorage.update(
+            req.body.noteTitle,
+            req.body.noteDescription,
+            req.body.noteDueTo,
+            req.body.noteImportance,
+            req.body.noteDone,
+            req.params.id);
         console.log("updating entry");
         res.redirect("/");
     }
 
-    async editNote(req, res){
+    async editNote(req, res) {
         //todo: get note object from DB to populate Handlebars Template
-        await res.render("editNote", {layout: "layout", css: "dark.css", title: "Edit Note"}, await noteStorage.get(req.params.id));
+        await res.render("editNote", Object.assign({}, {
+            layout: "layout",
+            css: "dark.css",
+            title: "Edit Note"
+        }, await noteStorage.get(req.params.id)));
     }
 
     async deleteNote(req, res) {
         //todo: delete note from DB
     };
 }
+
 export const editNoteController = new EditNoteController();

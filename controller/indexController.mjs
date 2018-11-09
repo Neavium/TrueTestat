@@ -5,6 +5,7 @@ let cssStyle = "dark.css";
 export class IndexController {
     async showIndex(req, res) {
         let db = await noteStorage.all();
+        console.log(db);
         res.render("index" , {layout: "layout", css: 'dark.css', title: 'Note Master',
              node: db});
     };
