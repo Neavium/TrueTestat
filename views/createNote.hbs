@@ -11,8 +11,8 @@
     <label id="NoteDoneLabel" class="Label" for="NoteDone">
         <input name="noteDone" type="checkbox" id="NoteDone" class="NoteDoneCheckbox">Done
     </label>
-    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/saveNote" value="Save">
-    <input class="Button Cancel" type="submit" form="dummyForm" formmethod="get" formaction="/" value="Cancel">
+    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/saveNote/{{theme}}" value="Save">
+    <input class="Button Cancel" type="submit" form="dummyForm" formmethod="get" formaction="/{{theme}}" value="Cancel">
 </form>
 <form id="dummyForm">
 </form>

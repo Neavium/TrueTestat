@@ -5,19 +5,21 @@ let cssStyle = "dark.css";
 export class IndexController {
     async showIndex(req, res) {
         let db = await noteStorage.all();
+        let theme = this.getTheme(req.params.theme);
+        let cond = theme === "light";
         console.log(db);
-        res.render("index" , {layout: "layout", css: cssStyle, title: 'Note Master',
+        res.render("index" , {layout: "layout", theme: theme, title: 'Note Master', condition: cond,
              node: db});
     };
 
     createNote(req, res) {
-        // res.send("Create Note: Not implemented yet, sorry");
-        res.redirect("/note/createNote")
+        let theme = this.getTheme(req.params.theme);
+        res.redirect("/note/createNote/" + theme);
     }
 
     styleSwitch(req, res) {
-        cssStyle = cssStyle==="dark.css"?"light.css":"dark.css";
-        res.redirect("/");
+        let style = "/" + req.params.theme;
+        res.redirect(style);
     }
 
     sortFinishDate(req, res) {
@@ -41,8 +43,16 @@ export class IndexController {
     }
 
     editNote(req, res) {
-        // res.send("editing not implemented yet");
-        res.redirect("/note/editNote/:id");
+        let theme = this.getTheme(req.params.theme);
+        res.redirect("/note/editNote/:id/" + theme);
+    }
+
+    getTheme(req){
+        let theme = "light";
+        if(req === "dark"){
+            theme = "dark";
+        }
+        return theme;
     }
 }
 

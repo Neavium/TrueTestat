@@ -2,9 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import hbs from 'express-hbs';
 import path from 'path';
-import {indexRoutes} from "./routes/indexRoutes.mjs"
+import {indexRoutes} from "./routes/indexRoutes.mjs";
 import {noteRoutes} from './routes/noteRoutes.mjs';
-import {registerHelpers} from './utils/handlebar-util'
+import {registerHelpers} from './utils/handlebar-util';
 import {overrideMiddleware} from "./utils/method-override";
 
 
@@ -21,6 +21,9 @@ hbs.registerHelper('listEntry', function (data, options) {
     }
     let str = "";
     for (let i = 0; i < data.length; i++) {
+        hbs.registerPartial("noteEntry", "./views/noteEntry.hbs");
+
+
         str += "<form id=\"ListForm\">";
         str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
         str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
@@ -33,7 +36,7 @@ hbs.registerHelper('listEntry', function (data, options) {
             importanceStr += "*";
         }
         str += "<a class=\"Importance\">" + importanceStr + "</a>";
-        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/note/editNote/" + data[i]["_id"] + "\" class=\"Button Edit\" value=\"Edit\">";
+        str += "<input type=\"submit\" formmethod=\"get\" formaction=\"/note/editNote/" + data[i]["_id"] + "/{{theme}}\" class=\"Button Edit\" value=\"Edit\">";
         str += "</form>";
     }
     return new hbs.SafeString(str);

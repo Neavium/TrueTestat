@@ -3,7 +3,8 @@ import {noteStorage} from '../services/noteStorage.mjs'
 export class EditNoteController {
 
     async saveNote(req, res) {
-        res.redirect("/");
+        let theme = this.getTheme(req.params.theme);
+        res.redirect("/" + theme);
         console.log(req.body);
         let done = "";
         if(req.body.noteDone === "on"){
@@ -13,7 +14,8 @@ export class EditNoteController {
     };
 
     async createNote(req, res) {
-        res.render("createNote", {layout: "layout", css: "dark.css", title: "Create Note"});
+        let theme = this.getTheme(req.params.theme)
+        res.render("createNote", {layout: "layout", theme: theme, title: "Create Note"});
     };
 
     async updateNote(req, res) {
@@ -29,14 +31,16 @@ export class EditNoteController {
             done,
             req.params.id);
         console.log("updating entry");
-        res.redirect("/");
+        let theme = this.getTheme(req.params.theme);
+        res.redirect("/" + theme);
     }
 
     async editNote(req, res) {
         //todo: get note object from DB to populate Handlebars Template
+        let theme = this.getTheme(req.params.theme);
         await res.render("editNote", Object.assign({}, {
             layout: "layout",
-            css: "dark.css",
+            theme: theme,
             title: "Edit Note",
         }, await noteStorage.get(req.params.id)));
     }
@@ -44,6 +48,14 @@ export class EditNoteController {
     async deleteNote(req, res) {
         //todo: delete note from DB
     };
+
+    getTheme(req){
+        let theme = "light";
+        if(req === "dark"){
+            theme = "dark";
+        }
+        return theme;
+    }
 }
 
 export const editNoteController = new EditNoteController();

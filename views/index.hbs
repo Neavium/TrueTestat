@@ -1,17 +1,25 @@
 <form id="HeadForm">
     <div id="Head">
-        <input type="submit" formmethod="get" formaction="/createNote" class="Button" value="Create new Note">
-        <input type="submit" formmethod="get" formaction="/styleSwitch" class="Button Right" value="Style Switcher">
+        <input type="submit" formmethod="get" formaction="/createNote/{{theme}}" class="Button" value="Create new Note">
+        <input type="submit" formmethod="get"
+        {{#if condition}}
+            formaction="/styleSwitch/dark"
+        {{else}}
+            formaction="/styleSwitch/light"
+        {{/if}}
+        class="Button Right" value="Style Switcher">
     </div>
     <div id="Subhead">
-        <input type="submit" formmethod="get" formaction="/sortFinishDate" class="Button" value="By finish Date">
-        <input type="submit" formmethod="get" formaction="/sortCreateDate" class="Button" value="By created Date">
-        <input type="submit" formmethod="get" formaction="/sortImportance" class="Button" value="By Importance">
-        <input type="submit" formmethod="get" formaction="/hideFinished" class="Button Right" value="Hide Finished">
+        <input type="submit" formmethod="get" formaction="/sortFinishDate/{{theme}}" class="Button" value="By finish Date">
+        <input type="submit" formmethod="get" formaction="/sortCreateDate/{{theme}}" class="Button" value="By created Date">
+        <input type="submit" formmethod="get" formaction="/sortImportance/{{theme}}" class="Button" value="By Importance">
+        <input type="submit" formmethod="get" formaction="/hideFinished/{{theme}}" class="Button Right" value="Hide Finished">
     </div>
 </form>
 <div class="ListEntry">
     {{#listEntry node}}
+        <!--TODO finish partial useage-->
+        {{> listEntry}}
     {{else}}
         <div class="EmptyList">
             <p class="emptyListText" id="EmptyListText">No note found</p>
