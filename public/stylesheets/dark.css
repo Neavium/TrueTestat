@@ -5,14 +5,20 @@ body {
     color: white;
 }
 
+.Button:hover{
+    background: dimgrey;
+    color: black;
+    border-color: white;
+}
+
 .EmptyList {
     background: dimgrey;
 }
 
 .Button {
-    border-color: white;
     background: black;
     color: white;
+    border: solid 1px white
 }
 
 /*Listentries*/
@@ -23,17 +29,44 @@ body {
 #TextArea{
     background: black;
     color: white;
+    border: solid 1px white;
 }
 
 /*EditNote*/
 .Text {
-    border-color: dimgrey;
+    border-color: lightgrey;
     background: black;
     color: white;
 }
 
 .TextArea{
-    border-color: dimgrey;
+    border-color: lightgrey;
     background: black;
     color: white;
+}
+
+.Text:hover {
+    background: dimgrey;
+}
+
+.Text:focus {
+    background: dimgrey;
+    border-color: white;
+}
+
+.TextArea:hover {
+    background: dimgrey;
+}
+
+.TextArea:focus {
+    background: dimgrey;
+    border-color: white;
+}
+
+#NoteDoneLabel:hover {
+    text-shadow: 0.05rem 0.05rem white;
+}
+
+#NoteDone:hover {
+    text-shadow: 0.05rem 0.05rem white;
 }

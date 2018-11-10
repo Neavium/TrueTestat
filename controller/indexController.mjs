@@ -1,59 +1,71 @@
 import {noteStorage} from '../services/noteStorage.mjs'
+import {editNoteController} from "./editNoteController";
 
 let cssStyle = "dark.css";
 
 export class IndexController {
     async showIndex(req, res) {
-        let db = await noteStorage.all();
-        let theme = this.getTheme(req.params.theme);
-        let cond = theme === "light";
-        console.log(db);
-        res.render("index" , {layout: "layout", theme: theme, title: 'Note Master', condition: cond,
-             node: db});
+        console.log(req.userSettings.orderBy, req.userSettings.orderDirection);
+        let db = await noteStorage.sortBy(req.userSettings.orderBy, parseInt(req.userSettings.orderDirection));
+        res.render("index",
+            {
+                layout: "layout",
+                css: req.userSettings.cssStyle,
+                title: 'Note Master',
+                node: db,
+                req: req
+            });
     };
 
     createNote(req, res) {
-        let theme = this.getTheme(req.params.theme);
-        res.redirect("/note/createNote/" + theme);
+        res.redirect("/note/createNote")
     }
 
     styleSwitch(req, res) {
-        let style = "/" + req.params.theme;
-        res.redirect(style);
+        if(req.userSettings.cssStyle === "dark.css"){
+            res.redirect("/?cssStyle=light.css");
+        }else{
+            res.redirect("/?cssStyle=dark.css");
+        }
     }
 
-    sortFinishDate(req, res) {
-        //todo: sort by finish date
-        res.send("Sort by Finish Date: Not implemented yet, sorry");
+    async sortFinishDate(req, res) {
+        await changeOrderQuery("dueUntilDate", req, res);
     }
 
-    sortCreateDate(req, res) {
-        //todo: sort by creation date
-        res.send("Sort by Creation Date: Not implemented yet, sorry");
+    async sortCreateDate(req, res) {
+        await changeOrderQuery("createdAtDate", req, res);
     }
 
-    sortImportance(req, res) {
-        //todo: sort by importance
-        res.send("Sort by Importance: Not implemented yet, sorry");
+    async sortImportance(req, res) {
+        await changeOrderQuery("importance", req, res);
     }
 
     hideFinished(req, res) {
-        //todo: hide finished
-        res.send("hide Finished: Not implemented yet, sorry");
+        if(req.userSettings.hideFinished === "false"){
+            res.redirect("/?hideFinished=true");
+        }else{
+            res.redirect("/?hideFinished=false");
+        }
     }
 
     editNote(req, res) {
-        let theme = this.getTheme(req.params.theme);
-        res.redirect("/note/editNote/:id/" + theme);
-    }
-
-    getTheme(req){
-        let theme = "light";
-        if(req === "dark"){
-            theme = "dark";
-        }
-        return theme;
+        res.redirect("/note/editNote/:id");
     }
 }
+
+function changeOrderQuery(orderBy, req, res){
+    if(req.userSettings.orderBy === orderBy){
+        if(req.userSettings.orderDirection === "1"){
+            res.redirect("/?orderDirection=-1");
+        }else{
+            res.redirect("/?orderDirection=1");
+        }
+    }else{
+        res.redirect("/?orderBy=" + orderBy + "&orderDirection=1");
+    }
+}
+
+
 
 export const indexController = new IndexController();

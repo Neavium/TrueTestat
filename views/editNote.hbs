@@ -8,11 +8,14 @@
     <input name="noteImportance" type="number" id="NoteImportance" class="Text" min="1" max="5" value="{{importance}}" required>
     <label id="NoteDueToLabel" class="Label" for="NoteDueTo">Due to</label>
     <input name="noteDueTo" type="date" id="NoteDueTo" class="Date Text" value="{{dueUntilDate}}" required>
-    <label id="NoteDoneLabel" class="Label" for="NoteDone">
-        <input name="noteDone" type="checkbox" id="NoteDone" class="NoteDoneCheckbox" {{done}}>Done
-    </label>
-    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/updateNote/{{_id}}/{{theme}}" value="Save">
-    <input class="Button Cancel" type="submit" form="dummyForm" formmethod="get" formaction="/{{theme}}" value="Cancel">
+    <div id="NoteDoneLabelDiv">
+        <label id="NoteDoneLabel" class="Label" for="NoteDone">
+            <input name="noteDone" type="checkbox" id="NoteDone" class="NoteDoneCheckbox" {{done}}>Done
+        </label>
+    </div>
+
+    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/updateNote/{{_id}}/" value="Save">
+    <input class="Button Cancel" type="submit" form="dummyForm" formmethod="get" formaction="/" value="Cancel">
 </form>
 <form id="dummyForm">
 </form>

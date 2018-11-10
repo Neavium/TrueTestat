@@ -8,7 +8,7 @@ body {
 .EmptyList {
     margin: 0.5rem 0;
     padding: 0.5rem;
-    background: lightblue;
+    background: grey;
     border-radius: 0.2rem;
 }
 
@@ -54,6 +54,15 @@ body {
     border-radius: 0.5rem;
     display: inherit;
     align-content: center;
+    border: solid 1px black;
+    margin: 0.1rem;
+}
+
+.Button:hover{
+    background: grey;
+    color: white;
+    border-color: black;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 52rem) {
@@ -103,7 +112,7 @@ body {
     display: grid;
     border: dotted darkgray;
     border-radius: 0.5rem;
-    padding: 0.1rem;
+    padding: 0.2rem;
     margin: 0.2rem 0;
 }
 
@@ -111,11 +120,25 @@ body {
     resize: vertical;
     min-height: 4rem;
     max-height: var(--Btn-width);
+    background: white;
+    color: black;
+    border-radius: 0.2rem;
+    border: solid 1px black;
+}
+
+.FinishedLabel{
+    pointer-events: none;
+    margin-left: 1rem;
+}
+
+.Edit {
+    height: 4rem;
+    width: 11.6rem;
 }
 
 @media screen and (min-width: 52rem) {
     #ListForm {
-        grid-template-columns: 8rem 1fr 1fr var(--Btn-width);
+        grid-template-columns: 8rem 1fr 1fr 11.6rem;
     }
 
     .DueTo {
@@ -148,7 +171,6 @@ body {
         grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 3;
-        margin-left: 1rem;
     }
 
     #TextArea {
@@ -160,14 +182,11 @@ body {
         margin-right: 1rem;
     }
 
-    .Edit {
+    .Edit{
         grid-column-start: 4;
         grid-column-end: 5;
         grid-row-start: 2;
         grid-row-end: 3;
-        margin: auto;
-        height: 4rem;
-        width: var(--Btn-width);
     }
 }
 
@@ -206,7 +225,6 @@ body {
         grid-column-end: -1;
         grid-row-start: 3;
         grid-row-end: 4;
-        margin-left: 1rem;
     }
 
     #TextArea {
@@ -225,7 +243,6 @@ body {
         grid-row-end: 6;
         margin-left: 1rem;
         height: var(--Btn-height);
-        width: var(--Btn-width);
     }
 }
 
@@ -239,8 +256,16 @@ body {
     height: var(--Btn-height);
     width: auto;
     border-radius: 0.2rem;
-    border-color: darkgray;
     margin: 0.2rem 0;
+    border: solid 1px darkgray;
+}
+
+.Text:hover {
+    background: lightgrey;
+}
+
+.Text:focus {
+    background: lightgrey;
 }
 
 .TextArea{
@@ -248,8 +273,16 @@ body {
     min-height: 4rem;
     max-height: var(--Btn-width);
     border-radius: 0.2rem;
-    border-color: darkgray;
     margin: 0.2rem 0;
+    border: solid 1px darkgray;
+}
+
+.TextArea:hover {
+    background: lightgrey;
+}
+
+.TextArea:focus {
+    background: lightgrey;
 }
 
 .Label{
@@ -313,7 +346,7 @@ body {
     grid-row-end: 9;
 }
 
-#NoteDoneLabel{
+#NoteDoneLabelDiv{
     grid-column-start: 1;
     grid-column-end: -1;
     grid-row-start: 9;
@@ -321,8 +354,18 @@ body {
     margin: 0.5rem 0;
 }
 
+#NoteDoneLabel:hover {
+    cursor: pointer;
+    text-shadow: 0.05rem 0.05rem black;
+}
+
 #NoteDone{
     margin: 0.2rem;
+}
+
+#NoteDone:hover {
+    cursor: pointer;
+    text-shadow: 0.05rem 0.05rem black;
 }
 
 .Save{
@@ -404,7 +447,7 @@ body {
         grid-row-end: 5;
     }
 
-    #NoteDoneLabel{
+    #NoteDoneLabelDiv{
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 5;

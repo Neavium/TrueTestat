@@ -50,6 +50,11 @@ export class NoteStorage {
     async all() {
         return await this.db.find({});
     }
+
+    async sortBy(sortBy, sortDirection) {
+        return await this.db.cfind({}).sort({[sortBy]: sortDirection}).exec();
+    }
 }
+
 
 export const noteStorage = new NoteStorage();
