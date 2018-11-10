@@ -18,6 +18,7 @@ registerHelpers(hbs);
 
 //Custom helper for list entries of notes
 hbs.registerHelper('listEntry', function (data, req, options) {
+    //TODO maybe use noteEntry.hbs somehow instead of this function
     if (data === undefined || data === null || data.length < 1) {
         return options.inverse(this);
     }
