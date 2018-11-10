@@ -32,6 +32,7 @@ hbs.registerHelper('listEntry', function (data, req, options) {
         if(!(hideFinished === "false" && (data[i]["done"] === "checked"))){
             str += "<form id=\"ListForm\">";
             str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
+            //TODO checking checkbox doesn't change state in DB, replace with read only checkbox?
             str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
             str += "<input id=\"FinishedCheckbox\" type=\"checkbox\" " + data[i]['done'] + " >"; // needs a checkbox field that has "checked" if so...
             str += "</label>";
