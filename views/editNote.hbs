@@ -5,7 +5,8 @@
     <label id="NoteDescriptionLabel" class="Label" for="NoteDescription">Description</label>
     <textarea name="noteDescription" id="NoteDescription" class="TextArea" required>{{noteContent}}</textarea>
     <label id="NoteImportanceLabel" class="Label" for="NoteImportance">Importance</label>
-    <input name="noteImportance" type="number" id="NoteImportance" class="Text" min="1" max="5" value="{{importance}}" required>
+    <input name="noteImportance" type="number" id="NoteImportance" class="Text" min="1" max="5" value="{{importance}}"
+           required>
     <label id="NoteDueToLabel" class="Label" for="NoteDueTo">Due to</label>
     <input name="noteDueTo" type="date" id="NoteDueTo" class="Date Text" value="{{dueUntilDate}}" required>
     <div id="NoteDoneLabelDiv">
@@ -14,7 +15,8 @@
         </label>
     </div>
 
-    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post" formaction="/note/updateNote/{{_id}}/" value="Save">
+    <input class="Button Save" type="submit" form="EditNoteForm" formmethod="post"
+           formaction="/note/updateNote/{{_id}}/" value="Save">
     <input class="Button Cancel" type="submit" form="dummyForm" formmethod="get" formaction="/" value="Cancel">
 </form>
 <form id="dummyForm">

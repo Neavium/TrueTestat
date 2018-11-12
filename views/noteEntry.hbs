@@ -1,7 +1,6 @@
 <form id="ListForm">
     <a class="DueTo">{{dueUntilDate}}</a>
     <label class="FinishedLabel" for="FinishedCheckbox">Done
-        {{!TODO checking checkbox doesn't change state in DB, replace with read only checkbox?}}
         <input id="FinishedCheckbox" type="checkbox" {{done}}>
     </label>
     <label class="NoteTitle" for="TextArea">{{noteTitle}}</label>

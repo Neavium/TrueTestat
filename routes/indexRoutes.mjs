@@ -1,4 +1,5 @@
 import express from 'express';
+
 const router = express.Router();
 import {indexController} from '../controller/indexController.mjs';
 

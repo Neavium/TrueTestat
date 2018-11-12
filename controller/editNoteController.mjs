@@ -44,10 +44,6 @@ export class EditNoteController {
             title: "Edit Note",
         }, await noteStorage.get(req.params.id)));
     }
-
-    async deleteNote(req, res) {
-        //TODO: delete note from DB
-    };
 }
 
 export const editNoteController = new EditNoteController();

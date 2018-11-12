@@ -1,7 +1,4 @@
-// const Datastore = require('nedb');
 import Datastore from 'nedb-promise'
-
-// const db = new Datastore({filename: './data/notes.db', autoload: true});
 
 export class Note {
     constructor(noteTitle, noteContent, dueUntilDate, importance, done) {
@@ -38,17 +35,8 @@ export class NoteStorage {
             });
     }
 
-    async delete(id) {
-        // await this.db.update({_id: id}, {$set: {"state": "DELETED"}});
-        // return await this.get(id);
-    }
-
     async get(id) {
         return await this.db.findOne({_id: id});
-    }
-
-    async all() {
-        return await this.db.find({});
     }
 
     async sortBy(sortBy, sortDirection) {

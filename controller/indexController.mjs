@@ -1,7 +1,4 @@
 import {noteStorage} from '../services/noteStorage.mjs'
-import {editNoteController} from "./editNoteController";
-
-let cssStyle = "dark.css";
 
 export class IndexController {
     async showIndex(req, res) {
@@ -22,9 +19,9 @@ export class IndexController {
     }
 
     styleSwitch(req, res) {
-        if(req.userSettings.cssStyle === "dark.css"){
+        if (req.userSettings.cssStyle === "dark.css") {
             res.redirect("/?cssStyle=light.css");
-        }else{
+        } else {
             res.redirect("/?cssStyle=dark.css");
         }
     }
@@ -42,9 +39,9 @@ export class IndexController {
     }
 
     hideFinished(req, res) {
-        if(req.userSettings.hideFinished === "false"){
+        if (req.userSettings.hideFinished === "false") {
             res.redirect("/?hideFinished=true");
-        }else{
+        } else {
             res.redirect("/?hideFinished=false");
         }
     }
@@ -54,18 +51,16 @@ export class IndexController {
     }
 }
 
-function changeOrderQuery(orderBy, req, res){
-    if(req.userSettings.orderBy === orderBy){
-        if(req.userSettings.orderDirection === "1"){
+function changeOrderQuery(orderBy, req, res) {
+    if (req.userSettings.orderBy === orderBy) {
+        if (req.userSettings.orderDirection === "1") {
             res.redirect("/?orderDirection=-1");
-        }else{
+        } else {
             res.redirect("/?orderDirection=1");
         }
-    }else{
+    } else {
         res.redirect("/?orderBy=" + orderBy + "&orderDirection=1");
     }
 }
-
-
 
 export const indexController = new IndexController();
