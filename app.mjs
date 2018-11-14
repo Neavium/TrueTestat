@@ -33,7 +33,7 @@ app.use("/note", noteRoutes);
 app.use(express.static(path.resolve('public')));
 
 const hostname = '127.0.0.1';
-const port = 3001;
+const port = 3000;
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });

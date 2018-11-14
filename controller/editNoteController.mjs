@@ -22,6 +22,7 @@ export class EditNoteController {
     };
 
     async updateNote(req, res) {
+        console.log(req.body.noteDone);
         let done = "";
         if (req.body.noteDone === "on") {
             done = "checked";

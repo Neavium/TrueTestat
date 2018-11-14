@@ -21,7 +21,8 @@
     "nedb": "^1.8.0",
     "nedb-promise": "^2.0.1",
     "node": "^11.0.0",
-    "stream": "0.0.2"
+    "stream": "0.0.2",
+    "express-session": "latest"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

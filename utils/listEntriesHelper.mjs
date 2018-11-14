@@ -13,7 +13,7 @@ export function listEntriesHelper(data, req, options) {
         hideFinished = req.userSettings.hideFinished;
     }
     for (let i = 0; i < data.length; i++) {
-        if (!(hideFinished === "false" && (data[i]["done"] === "checked"))) {
+        if (!(hideFinished === "true" && (data[i]["done"] === "checked"))) {
             str += "<form id=\"ListForm\">";
             str += "<a class=\"DueTo\">" + data[i]['dueUntilDate'] + "</a>";
             str += "<label class=\"FinishedLabel\" for=\"FinishedCheckbox\">Done";
